@@ -25,3 +25,10 @@ func (t TemplRender) Render(w http.ResponseWriter) error {
 func (t TemplRender) WriteContentType(w http.ResponseWriter) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 }
+
+func New(ctx context.Context, component templ.Component) *TemplRender {
+	return &TemplRender{
+		Context:   ctx,
+		Component: component,
+	}
+}
